@@ -19,4 +19,12 @@ public class UserController {
 
         return "users";
     }
+
+    @GetMapping("/users/new")
+    public String showNewForm(Model model){
+        List<User> userLists = service.listAll();
+        model.addAttribute("user",new User());
+
+        return "new";
+    }
 }
