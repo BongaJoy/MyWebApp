@@ -23,7 +23,7 @@ public class UserRepositoryTests {
         User user = new User();
         user.setFirstName("Nokubonga");
         user.setLastName("Machaba");
-        user.setContactNumber(07);
+        user.setContactNumber("0792102215");
 
         User savedUser = repo.save(user);
 
@@ -63,7 +63,7 @@ public class UserRepositoryTests {
 
     @Test
     public void testDelete(){
-        Integer userId = 3;
+        Integer userId = 6;
         repo.deleteById(userId);
 
         Optional<User> optionalUser = repo.findById(userId);

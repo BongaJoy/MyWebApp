@@ -17,7 +17,7 @@ public class User {
     private String lastName;
 
     @Column(length = 10, nullable = false)
-    private Integer contactNumber;
+    private String contactNumber;
 
     public Integer getId() {
         return id;
@@ -43,11 +43,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Integer getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(Integer contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
