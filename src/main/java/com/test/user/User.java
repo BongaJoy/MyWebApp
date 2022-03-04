@@ -50,4 +50,14 @@ public class User {
     public void setContactNumber(Integer contactNumber) {
         this.contactNumber = contactNumber;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", contactNumber=" + contactNumber +
+                '}';
+    }
 }
