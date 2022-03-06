@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add new user</title>
+    <title>[[${pageTitle}]]</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/boostrap.min.css}" />
     <style>
     input[type=text], select {
@@ -15,7 +15,7 @@
       box-sizing: border-box;
     }
 
-    input[type=submit] {
+    button[type=submit] {
       width: 100%;
       background-color: #4CAF50;
       color: white;
@@ -26,9 +26,25 @@
       cursor: pointer;
     }
 
-    input[type=submit]:hover {
+    button[type=submit]:hover {
       background-color: #45a049;
     }
+
+    button[type=button] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button[type=button]:hover {
+      background-color: #45a049;
+    }
+
 
     div {
       border-radius: 5px;
@@ -39,21 +55,36 @@
 </head>
 <body>
  <div align="center">
-     <H1>Add new user</H1>
+     <H1>[[${pageTitle}]]</H1>
+     <h2>[[${message}]]</h2>
  </div>
 
  <form th:action="@{/users/save}" method="post" th:object="${user}">
+     <input type="hidden" th:field="*{id}">
      <div class="border">
          <label>First Name: </label>
-         <input type="text" th:field="*{firstName}">
+         <input type="text" th:field="*{firstName}" required minlength="5" maxlength="45">
          <label>Last Name: </label>
-         <input type="text" th:field="*{lastName}">
+         <input type="text" th:field="*{lastName}" required maxlength="45" minlength="5">
          <label>Contact Number: </label>
-         <input type="text" th:field="*{contactNumber}">
-         <input type="submit" value="Submit">
+         <input type="text" th:field="*{contactNumber}" required minlength="10" maxlength="10">
+
+         <div align="center">
+             <button type="submit" onclick="saveUser()">Save</button>
+             <button type="button" onclick="cancelForm()">Cancel</button>
+         </div>
 
 
      </div>
  </form>
+
+<script type="text/javascript">
+
+     function cancelForm() {
+          window.location ="[[@{/users}]]";
+     }
+
+
+</script>
 </body>
 </html>
